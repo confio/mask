@@ -42,6 +42,14 @@
     }
   ],
   "definitions": {
+    "Binary": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "uint8",
+        "minimum": 0.0
+      }
+    },
     "Coin": {
       "type": "object",
       "required": [
@@ -107,10 +115,13 @@
                   "$ref": "#/definitions/HumanAddr"
                 },
                 "msg": {
-                  "type": "string"
+                  "$ref": "#/definitions/Binary"
                 },
                 "send": {
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "$ref": "#/definitions/Coin"
                   }
@@ -132,7 +143,7 @@
               ],
               "properties": {
                 "data": {
-                  "type": "string"
+                  "$ref": "#/definitions/Binary"
                 }
               }
             }
